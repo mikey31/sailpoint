@@ -15,13 +15,13 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
-
+        
         post {
             success {
                 // publish html
                 publishHTML target: [
                     allowMissing: false,
-                    includes: '**/*'
+                    includes: '**/*',
                     alwaysLinkToLastBuild: false,
                     keepAll: true,
                     reportDir: 'coverage',
