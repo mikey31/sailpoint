@@ -21,6 +21,7 @@ pipeline {
                 // publish html
                 publishHTML target: [
                     allowMissing: false,
+                    includes: '**/*'
                     alwaysLinkToLastBuild: false,
                     keepAll: true,
                     reportDir: 'coverage',
