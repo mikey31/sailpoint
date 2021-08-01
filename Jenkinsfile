@@ -1,9 +1,11 @@
 pipeline {
     agent any
+
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
+                archive (includes: '*.html')
             }
         }
         stage('Test') {
@@ -15,16 +17,16 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
-        
+
         post {
             success {
                 // publish html
                 publishHTML target: [
                     allowMissing: false,
                     includes: '**/*',
-                    alwaysLinkToLastBuild: false,
+                    alwaysLinkToLastBuild: true,
                     keepAll: true,
-                    reportDir: '*/coverage',
+                    reportDir: '',
                     reportFiles: 'index.html',
                     reportName: 'RCov Report'
                     ]
@@ -32,4 +34,4 @@ pipeline {
             }
         }
     }
-}
+} 
