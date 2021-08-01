@@ -24,7 +24,7 @@ pipeline {
                     includes: '**/*',
                     alwaysLinkToLastBuild: false,
                     keepAll: true,
-                    reportDir: 'coverage',
+                    reportDir: '*/coverage',
                     reportFiles: 'index.html',
                     reportName: 'RCov Report'
                     ]
