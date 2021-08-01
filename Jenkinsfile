@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
@@ -16,7 +15,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
-            
+
         post {
             success {
                 // publish html
@@ -28,6 +27,7 @@ pipeline {
                     reportFiles: 'index.html',
                     reportName: 'RCov Report'
                     ]
+                 }
             }
         }
     }
